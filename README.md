@@ -1,6 +1,6 @@
 # electron-fuse-babel
 
-![](https://trello-attachments.s3.amazonaws.com/54d96ae8cd8a263bf8dd70e9/58a0583c279a6110be1355d0/a7b637438dda91ad590e31be419c6063/Made_with_Love.gif)
+ Made with ♥ by Martin!
 
 **Clone and run for minimum config.**
 
