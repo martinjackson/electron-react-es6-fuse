@@ -8,10 +8,10 @@ let frontCode = new fsbx.FuseBox({
     homeDir: "src/",
     sourceMap:
     {
-      bundleReference: "sourcemaps.js.map",
-      outFile: "./build/sourcemaps.js.map",
+      bundleReference: "bundle.js.map",
+      outFile: "./public/bundle.js.map",
     },
-    outFile: "./build/bundle.js",
+    outFile: "./public/bundle.js",
     plugins: [
         fsbx.JSONPlugin(), fsbx.CSSPlugin(), fsbx.SVGPlugin(),
         fsbx.BabelPlugin({ config: { sourceMaps: true, presets: ["latest", "react"] } })
@@ -23,9 +23,9 @@ let mainCode = new fsbx.FuseBox({
     sourceMap:
     {
       bundleReference: "main.js.map",
-      outFile: "./build/main.js.map",
+      outFile: "./dist/main.js.map",
     },
-    outFile: "./build/main.js",
+    outFile: "./dist/main.js",
     plugins: [
         fsbx.JSONPlugin(), fsbx.CSSPlugin(), fsbx.SVGPlugin(),
         fsbx.BabelPlugin({ config: { sourceMaps: true, presets: ["latest", "react"] } })
@@ -33,9 +33,9 @@ let mainCode = new fsbx.FuseBox({
 });
 
 gulp.task("bundleMain",()=> { mainCode.bundle('>main.js') })
-gulp.task("bundle",()=> { frontCode.bundle('>renderer.js') })
-gulp.task("restart",()=> { electron.restart() })
-gulp.task("reload",()=> { electron.reload() })
+gulp.task("bundle",    ()=> { frontCode.bundle('>renderer.js') })
+gulp.task("restart",   ()=> { electron.restart() })
+gulp.task("reload",    ()=> { electron.reload() })
 
 gulp.task('default', function () {
   electron.start();

@@ -23,11 +23,13 @@ Hope this starter helps!
 
 ```bash
 # Clone this repository
-git clone https://github.com/martinjackson/electron-fuse-babel
+git clone https://github.com/martinjackson/electron-fuse-babel <your project name>
 # Go into the repository
 cd <your project name>
 # Install dependencies
 yarn
+# launch your editor
+atom .
 # Run the app
 yarn start
 ```
