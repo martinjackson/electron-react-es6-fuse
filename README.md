@@ -2,7 +2,7 @@
 
  Made with ♥ by Martin!
 
-I learned quite a bit from ArekusuNaito's  [ArekusuNaito/electron-fuse-box-babel-live-reload-boilerplate](https://github.com/ArekusuNaito/electron-fuse-box-babel-live-reload-boilerplate)
+I learned quite a bit from ArekusuNaito's  [electron-fuse-box-babel-live-reload-boilerplate](https://github.com/ArekusuNaito/electron-fuse-box-babel-live-reload-boilerplate)
 
 **Clone and run for minimum config.**
 
