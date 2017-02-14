@@ -69,10 +69,7 @@ FuseBox.isServer = true;
 
 //Use require instead in order for Node API to work
 var fs = require('fs');
-console.log("Let's log fs to know Node is avaliable: ", fs);
-if (fs.readFileSync) {
-  console.log('Sucess! - readFileSync function exists! Go ahead and start coding !');
-} else {
+if (!fs.readFileSync) {
   console.error('fs.readFileSync sync is not avaliable');
 }
 

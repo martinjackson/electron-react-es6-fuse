@@ -14,7 +14,6 @@ function createWindow (page) {
   // Create the browser window.
   const win = new BrowserWindow({width: 1024, height: 600})
   const url = 'file://' + __dirname + '/public/' + page;
-  console.log('url: ', url);
   win.loadURL(url);
   // Open the DevTools.
   win.webContents.openDevTools()

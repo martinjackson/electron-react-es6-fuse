@@ -12,6 +12,10 @@ gulp.task("bundleRend",             ()=> { frontCode.bundle('>renderer.js') })
 gulp.task("bundle", ['bundleRend'], ()=> { mainCode.bundle('>main.js') })
 gulp.task("restart",                ()=> { electron.restart() })
 gulp.task("reload",                 ()=> { electron.reload() })
+gulp.task("prep", ['bundle'],       ()=> {
+    gulp.src('main/public/**/*.*', {base: 'main/public/'})
+      .pipe(gulp.dest('./dist/public'))
+});
 
 gulp.task('default', function () {
   electron.start();
