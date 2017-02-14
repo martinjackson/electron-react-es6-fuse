@@ -9,7 +9,13 @@ I learned quite a bit from ArekusuNaito's  [ArekusuNaito/electron-fuse-box-babel
 This is a minimal Electron boilerplate to bundle your code via [fuse-box](http://fuse-box.org/). It uses [`gulp`](https://github.com/gulpjs/gulp) to check for changes in your `src` folder and live-reloads it with [`electron-connect`](https://github.com/Quramy/electron-connect).
 The babel preset is `latest` (older babel examples show `es2015`).
 
-Hope this boilerplate helps!
+## Editor Configuration
+**Atom**
+```bash
+apm install editorconfig es6-javascript atom-ternjs javascript-snippets linter linter-eslint language-babel autocomplete-modules file-icons
+```
+
+Hope this starter helps!
 
 
 

@@ -18,6 +18,21 @@ let frontCode = new fsbx.FuseBox({
     ]
 });
 
+let mainCode = new fsbx.FuseBox({
+    homeDir: "main/",
+    sourceMap:
+    {
+      bundleReference: "main.js.map",
+      outFile: "./build/main.js.map",
+    },
+    outFile: "./build/main.js",
+    plugins: [
+        fsbx.JSONPlugin(), fsbx.CSSPlugin(), fsbx.SVGPlugin(),
+        fsbx.BabelPlugin({ config: { sourceMaps: true, presets: ["latest", "react"] } })
+    ]
+});
+
+gulp.task("bundleMain",()=> { mainCode.bundle('>main.js') })
 gulp.task("bundle",()=> { frontCode.bundle('>renderer.js') })
 gulp.task("restart",()=> { electron.restart() })
 gulp.task("reload",()=> { electron.reload() })
