@@ -231,7 +231,7 @@ var Example = function (_React$Component) {
   _createClass(Example, [{
     key: 'render',
     value: function render() {
-      var size = this.props.size;
+      var something = this.props.something;
 
 
       return _react2.default.createElement(
@@ -241,8 +241,8 @@ var Example = function (_React$Component) {
         _react2.default.createElement(
           'h2',
           null,
-          'Welcome to React -- second window (props size: ',
-          size,
+          'Welcome to React -- second window (prop \'something\': ',
+          something,
           ')'
         )
       );
