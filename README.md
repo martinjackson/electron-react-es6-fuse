@@ -2,10 +2,12 @@
 
  Made with ♥ by Martin!
 
+I learned quite a bit from ArekusuNaito's  [ArekusuNaito/electron-fuse-box-babel-live-reload-boilerplate](https://github.com/ArekusuNaito/electron-fuse-box-babel-live-reload-boilerplate)
+
 **Clone and run for minimum config.**
 
 This is a minimal Electron boilerplate to bundle your code via [fuse-box](http://fuse-box.org/). It uses [`gulp`](https://github.com/gulpjs/gulp) to check for changes in your `src` folder and live-reloads it with [`electron-connect`](https://github.com/Quramy/electron-connect).
-The babel preset is `es2015` but you can go ahead and use any you want like `latest`.
+The babel preset is `latest` (older babel examples show `es2015`).
 
 Hope this boilerplate helps!
 

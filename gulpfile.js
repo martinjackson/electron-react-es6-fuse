@@ -13,18 +13,17 @@ let frontCode = new fsbx.FuseBox({
     },
     outFile: "./build/bundle.js",
     plugins: [
-        fsbx.JSONPlugin(),
-        fsbx.BabelPlugin({ config: { sourceMaps: true, presets: ["es2015"] } })
+        fsbx.JSONPlugin(), fsbx.CSSPlugin(), fsbx.SVGPlugin(),
+        fsbx.BabelPlugin({ config: { sourceMaps: true, presets: ["latest", "react"] } })
     ]
 });
 
-gulp.task("bundle",()=>
-{
-    frontCode.bundle('>renderer.js')
-})
+gulp.task("bundle",()=> { frontCode.bundle('>renderer.js') })
+gulp.task("restart",()=> { electron.restart() })
+gulp.task("reload",()=> { electron.reload() })
 
 gulp.task('default', function () {
   electron.start();
-  gulp.watch(['./bootstrapper.js', './main.js'], electron.restart());
-  gulp.watch(['src/**/*.**', './build/index.html'],['bundle', electron.reload()]);
+  gulp.watch(['main/**/*.**'], ['restart']);
+  gulp.watch(['src/**/*.**', 'build/index.html'],['bundle','reload']);
 });

@@ -2,15 +2,6 @@
 import { app, BrowserWindow } from 'electron';
 import { client } from 'electron-connect';
 
-/*
-const electron = require('electron')
-// Module to control application life.
-const app = electron.app
-// Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow
-
-var client = require('electron-connect').client;
-*/
 
 const path = require('path')
 const url = require('url')
@@ -24,14 +15,14 @@ let mainWindow
 
 function createWindow () {
 
-  console.log('create window -- yes.');
+  console.log('create window -- yes..');
 
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 1024, height: 600})
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, './build/index.html'),
+    pathname: path.join(__dirname, '../build/index.html'),
     protocol: 'file:',
     slashes: true
   }))
@@ -44,7 +35,6 @@ function createWindow () {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    console.log('main window closed.');
     mainWindow = null
   })
   client.create(mainWindow);
