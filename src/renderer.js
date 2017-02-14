@@ -24,6 +24,29 @@ else
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.js';
+import Example from './Example.js';
+
+// Traditional React example entry point
+// ReactDOM.render(<App />, document.getElementById('root'));
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const APPS = {
+  App,
+  Example
+};
+
+function renderAppInElement(el) {
+  const id = el["id"];
+  if (id.length == 0) return;
+
+  var Mod = APPS[id];
+  if (!Mod) return;
+
+  // get props from elements data attribute, like the post_id
+  const props = Object.assign({}, el.dataset);  // data-size="10" into props.size
+
+  ReactDOM.render(<Mod {...props} />, el);
+}
+
+var divs = document.querySelectorAll('div');
+[].forEach.call(divs, renderAppInElement);

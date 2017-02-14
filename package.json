@@ -1,5 +1,5 @@
 {
-  "name": "electron-fuse-box-babel-live-reload-boilerplate",
+  "name": "electron-fuse-babel",
   "version": "1.0.0",
   "description": "**Clone and run for a cool boilerplate!",
   "main": "main/bootstrapper.js",

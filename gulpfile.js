@@ -9,9 +9,9 @@ let frontCode = new fsbx.FuseBox({
     sourceMap:
     {
       bundleReference: "bundle.js.map",
-      outFile: "./public/bundle.js.map",
+      outFile: "main/public/bundle.js.map",
     },
-    outFile: "./public/bundle.js",
+    outFile: "main/public/bundle.js",
     plugins: [
         fsbx.JSONPlugin(), fsbx.CSSPlugin(), fsbx.SVGPlugin(),
         fsbx.BabelPlugin({ config: { sourceMaps: true, presets: ["latest", "react"] } })
@@ -23,9 +23,9 @@ let mainCode = new fsbx.FuseBox({
     sourceMap:
     {
       bundleReference: "main.js.map",
-      outFile: "./dist/main.js.map",
+      outFile: "dist/main.js.map",
     },
-    outFile: "./dist/main.js",
+    outFile: "dist/main.js",
     plugins: [
         fsbx.JSONPlugin(), fsbx.CSSPlugin(), fsbx.SVGPlugin(),
         fsbx.BabelPlugin({ config: { sourceMaps: true, presets: ["latest", "react"] } })

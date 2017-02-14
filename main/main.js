@@ -13,15 +13,20 @@ const pages = ['index.html', 'example.html'];
 function createWindow (page) {
   // Create the browser window.
   const win = new BrowserWindow({width: 1024, height: 600})
-  win.loadURL('file://' + __dirname + '/public/' + page);
+  const url = 'file://' + __dirname + '/public/' + page;
+  console.log('url: ', url);
+  win.loadURL(url);
   // Open the DevTools.
   win.webContents.openDevTools()
 
-  client.create(mainWindow);
+  // only attach electron-connect when live loading
+  client.create(win);
+
+  return win;
 }
 
 function createWindows () {
-  for (let i=0; i<windows.length) {
+  for (let i=0; i<pages.length; i++) {
     if (win[i] == null) {
        win[i] = createWindow(pages[i]);
        // Emitted when the window is closed.
