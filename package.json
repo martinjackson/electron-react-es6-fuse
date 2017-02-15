@@ -27,12 +27,12 @@
     "gulp": "^3.9.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env NODE_ENV=hot gulp",
+    "test":   "echo \"Error: no test specified\" && exit 1",
+    "start":  "cross-env NODE_ENV=hot gulp",
     "bundle": "gulp bundle",
-    "dev": "electron -r babel-register main/main.js",
-    "prep": "gulp prep && babel main/main.js --out-file dist/main.js",
-    "prod": "electron ./dist/",
+    "prep":   "gulp prep",
+    "dev":    "electron -r babel-register main/main.js",
+    "prod":   "electron ./dist/",
     "packager": "electron-packager dist electron-fuse-babel --icon=img/icon --overwrite --prune=true --ignore=src --ignore=notes --out=./bin/ --asar=true"
   },
   "keywords": [],

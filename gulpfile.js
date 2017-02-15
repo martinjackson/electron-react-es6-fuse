@@ -1,6 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
+var exec = require('child_process').exec;
 const electron = require('electron-connect').server.create();
 
 const fuseHelper = require('./fuseHelper.js');
@@ -8,15 +9,28 @@ const fuseHelper = require('./fuseHelper.js');
 let frontCode = fuseHelper("src/",  "main/public/bundle.js");
 
 // let mainCode  = fuseHelper("main/", "dist/main.js");
-// gulp.task("bundle", ['bundleRend'], ()=> { mainCode.bundle('>main.js') })
+// gulp.task("bundleMain", ()=> { mainCode.bundle('>main.js') })
 
-gulp.task("bundle",                 ()=> { frontCode.bundle('>renderer.js') })
 gulp.task("restart",                ()=> { electron.restart() })
 gulp.task("reload",                 ()=> { electron.reload() })
-gulp.task("prep", ['bundle'],       ()=> {
+gulp.task("bundleRend",             ()=> { frontCode.bundle('>renderer.js') })
+gulp.task("prep", ['bundle','copy','babel-main']});
+gulp.task("bundle", ['bundleRend']);
+
+gulp.task("copy", ()=> {
     gulp.src('main/public/**/*.*', {base: 'main/public/'})
       .pipe(gulp.dest('./dist/public'))
+    gulp.src('main/package.json').pipe(gulp.dest('./dist/'))
 });
+
+gulp.task('babel-main', (cb)=> {
+  exec('babel main/main.js --out-file dist/main.js',
+      (err, stdout, stderr)=> {
+          console.log(stdout);
+          console.log(stderr);
+          cb(err);
+        });
+})
 
 gulp.task('default', function () {
   electron.start();
