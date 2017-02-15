@@ -1,4 +1,4 @@
-# electron-fuse-babel
+# Electron-React-ES6-fuse
 
 ![electron-fuse-babel](icons/erf-logo.png)
 
