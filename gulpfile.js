@@ -1,6 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
+var rename = require("gulp-rename");
 var exec = require('child_process').exec;
 const electron = require('electron-connect').server.create();
 
@@ -20,7 +21,9 @@ gulp.task("bundle", ['bundleRend']);
 gulp.task("copy", ()=> {
     gulp.src('main/public/**/*.*', {base: 'main/public/'})
       .pipe(gulp.dest('./dist/public'))
-    gulp.src('main/package.json').pipe(gulp.dest('./dist/'))
+    gulp.src('main/runtime.json')
+      .pipe(rename("package.json"))
+      .pipe(gulp.dest('./dist/'))
 });
 
 gulp.task('babelMain', (cb)=> {
@@ -44,7 +47,7 @@ gulp.task('loadModules', (cb)=> {
 
 gulp.task('test', (cb)=> {
   process.chdir('dist');
-  exec('pwd', 
+  exec('pwd',
       (err, stdout, stderr)=> {
           console.log(stdout);
           console.log(stderr);

@@ -15,6 +15,7 @@
     "electron": "^1.4.15",
     "electron-connect": "^0.6.1",
     "electron-packager": "^8.5.1",
+    "gulp-rename": "^1.2.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
@@ -27,12 +28,12 @@
     "gulp": "^3.9.1"
   },
   "scripts": {
-    "test":   "echo \"Error: no test specified\" && exit 1",
-    "start":  "cross-env NODE_ENV=hot gulp",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=hot gulp",
     "bundle": "gulp bundle",
-    "prep":   "gulp prep",
-    "dev":    "electron -r babel-register main/main.js",
-    "prod":   "electron ./dist/",
+    "prep": "gulp prep",
+    "dev": "electron -r babel-register main/main.js",
+    "prod": "electron ./dist/",
     "packager": "electron-packager dist electron-fuse-babel --icon=img/icon --overwrite --prune=true --ignore=src --ignore=notes --out=./bin/ --asar=true"
   },
   "keywords": [],
