@@ -34,7 +34,7 @@ Hope this starter helps!
 
 ```bash
 # Clone this repository
-git clone https://github.com/martinjackson/electron-fuse-babel <your project name>
+git clone https://github.com/martinjackson/electron-react-es6-fuse <your project name>
 # Go into the repository
 cd <your project name>
 # Install dependencies
