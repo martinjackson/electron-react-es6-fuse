@@ -16,7 +16,7 @@
 This is a minimal Electron & React starter project.
 
 The NPM scripts in package.json bundle your code via [fuse-box](http://fuse-box.org/). It uses [`gulp`](https://github.com/gulpjs/gulp) to check for changes in your `src` folder and live-reloads it with [`electron-connect`](https://github.com/Quramy/electron-connect).
-The babel preset is `latest` (older babel examples show `es2015`).
+The babel preset is `latest` and `react`.
 
 ## Editor Configuration
 **Atom**
