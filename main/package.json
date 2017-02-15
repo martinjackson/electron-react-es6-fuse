@@ -1,6 +1,6 @@
 {
-  "name": "electron-fuse-babel",
-  "productName": "electron-fuse-babel",
+  "name": "electron-react-es6-fuse",
+  "productName": "electron-react-es6-fuse",
   "version": "1.0.0",
   "description": "Electron + React App bundled by FuseBox and Babel",
   "main": "./main.js",

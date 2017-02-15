@@ -44,10 +44,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/martinjackson/electron-fuse-babel.git"
+    "url": "git+https://github.com/martinjackson/electron-react-es6-fuse"
   },
   "bugs": {
-    "url": "https://github.com/martinjackson/electron-fuse-babel/issues"
+    "url": "https://github.com/martinjackson/electron-react-es6-fuse/issues"
   },
-  "homepage": "https://github.com/martinjackson/electron-fuse-babel#readme"
+  "homepage": "https://github.com/martinjackson/electron-react-es6-fuse#readme"
 }
