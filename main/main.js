@@ -10,8 +10,6 @@ if (process.env.NODE_ENV === 'hot') {
   client = require('electron-connect').client;    // Live-reloader
 }
 
-const path = require('path')
-const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
