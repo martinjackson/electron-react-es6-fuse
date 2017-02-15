@@ -14,7 +14,7 @@ let frontCode = fuseHelper("src/",  "main/public/bundle.js");
 gulp.task("restart",                ()=> { electron.restart() })
 gulp.task("reload",                 ()=> { electron.reload() })
 gulp.task("bundleRend",             ()=> { frontCode.bundle('>renderer.js') })
-gulp.task("prep", ['bundle','copy','babelMain']});
+gulp.task("prep", ['bundle','copy','babelMain']);
 gulp.task("bundle", ['bundleRend']);
 
 gulp.task("copy", ()=> {
