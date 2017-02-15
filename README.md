@@ -1,9 +1,11 @@
 # electron-fuse-babel
 
+![electron-fuse-babel](icons/erf-logo.png)
+
  Made with ♥ by Martin!
- 
+
  Fully configured for [ECMAScript 6](http://es6-features.org) support both in the React components and in the Electron modules
- 
+
 - **Clone this project** for a quick start
 - `yarn start` to run the project with Live Reload as you edit the [React](https://facebook.github.io/react/) components or the main.js [Electron](http://electron.atom.io/) app ---- see the changed immediately!!
 - `yarn run prep` and `yarn run packager` will build a Windows EXE, Mac APP, and/or Linux Execuable.
@@ -66,4 +68,4 @@ work, the following must be included in **package.json**
 Because **package.json**'s main entry point is "main/bootstrapper.js" and it runs `require('babel-register')({ presets: ['latest', 'react'] });` before requiring main/main.js -- the above package.json babel entry is unnecessary, accept when `electron -r babel-register` like commands.
 
 ## Future TODOs
-- use electron-build to create auto-installer 
+- use electron-build to create auto-installer
