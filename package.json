@@ -14,6 +14,7 @@
     "cross-env": "^3.1.4",
     "electron": "^1.4.15",
     "electron-connect": "^0.6.1",
+    "electron-packager": "^8.5.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
@@ -30,8 +31,9 @@
     "start": "cross-env NODE_ENV=hot gulp",
     "bundle": "gulp bundle",
     "dev": "electron -r babel-register main/main.js",
-    "prep": "gulp prep ; babel main/main.js --out-file dist/main.js",
-    "prod": "electron ./dist/"
+    "prep": "gulp prep && babel main/main.js --out-file dist/main.js",
+    "prod": "electron ./dist/",
+    "packager": "electron-packager dist electron-fuse-babel --icon=img/icon --overwrite --prune=true --ignore=src --ignore=notes --out=./bin/ --asar=true"
   },
   "keywords": [],
   "author": {
