@@ -2,9 +2,10 @@
 
 const gulp = require('gulp');
 var rename = require("gulp-rename");
+var runSequence = require('run-sequence');
 var exec = require('child_process').exec;
-const electron = require('electron-connect').server.create();
 
+const electron = require('electron-connect').server.create();
 const fuseHelper = require('./fuseHelper.js');
 
 let frontCode = fuseHelper("src/",  "main/public/bundle.js");
@@ -15,7 +16,7 @@ let frontCode = fuseHelper("src/",  "main/public/bundle.js");
 gulp.task("restart",                ()=> { electron.restart() })
 gulp.task("reload",                 ()=> { electron.reload() })
 gulp.task("bundleRend",             ()=> { frontCode.bundle('>renderer.js') })
-gulp.task("prep", ['bundle','copy','babelMain','loadModules']);
+gulp.task("prep", ()=> { runSequence('bundle','copy','babelMain','loadModules'); })
 gulp.task("bundle", ['bundleRend']);
 
 gulp.task("copy", ()=> {
