@@ -1,12 +1,21 @@
 # electron-fuse-babel
 
  Made with ♥ by Martin!
+ 
+- **Clone this project** for a quick start
+- `yarn start` to run the project with Live Reload as you edit the [React](https://facebook.github.io/react/) components or the main.js [Electron](http://electron.atom.io/) app
+- `yarn run prep` and `yarn run packager` will build a Windows EXE, Mac APP, and/or Linux Execuable.
 
-I learned quite a bit from ArekusuNaito's  [electron-fuse-box-babel-live-reload-boilerplate](https://github.com/ArekusuNaito/electron-fuse-box-babel-live-reload-boilerplate)
+**Development tools needed**
+- [NodeJS](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/en/)
+- [Atom Editor](https://atom.io/)
 
 **Clone and run for minimum config.**
 
-This is a minimal Electron boilerplate to bundle your code via [fuse-box](http://fuse-box.org/). It uses [`gulp`](https://github.com/gulpjs/gulp) to check for changes in your `src` folder and live-reloads it with [`electron-connect`](https://github.com/Quramy/electron-connect).
+This is a minimal Electron & React starter project.
+
+The NPM scripts in package.json bundle your code via [fuse-box](http://fuse-box.org/). It uses [`gulp`](https://github.com/gulpjs/gulp) to check for changes in your `src` folder and live-reloads it with [`electron-connect`](https://github.com/Quramy/electron-connect).
 The babel preset is `latest` (older babel examples show `es2015`).
 
 ## Editor Configuration
@@ -19,7 +28,7 @@ Hope this starter helps!
 
 
 
-## To Use
+## Quick Start
 
 ```bash
 # Clone this repository
@@ -34,7 +43,7 @@ atom .
 yarn start
 ```
 
-Check the `gulpfile` for bundling and live-reloading.
+The `gulpfile` handles bundling and live-reloading.
 Check `main.js` on function `createWindow()` for `electron-connect`'s client
 
 
@@ -42,6 +51,8 @@ Check `main.js` on function `createWindow()` for `electron-connect`'s client
 - [The fuse-box guys](https://github.com/fuse-box)
 - [Quramy for electron-connect](https://github.com/Quramy/electron-connect)
 - [Gulp](https://github.com/gulpjs/gulp)
+
+I learned quite a bit from ArekusuNaito's  [electron-fuse-box-babel-live-reload-boilerplate](https://github.com/ArekusuNaito/electron-fuse-box-babel-live-reload-boilerplate)
 
 ## Awkward things not yet fixed...
 
@@ -55,8 +66,4 @@ work, the following must be included in **package.json**
 Because **package.json**'s main entry point is "main/bootstrapper.js" and it runs `require('babel-register')({ presets: ['latest', 'react'] });` before requiring main/main.js -- the above package.json babel entry is unnecessary, accept when `electron -r babel-register` like commands.
 
 ## Future TODOs
-- detect in main/main.js if not running in a HOT LOADER configuration and
-do not attempt electron-connect.
-- generate a dist/main.js that has ES6 removed where `cd dist ; electron .`
-will work w/o error.
-- use electron-packager and electron-build to create install executables from the dist/ directory.
+- use electron-build to create auto-installer 
