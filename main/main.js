@@ -1,6 +1,14 @@
 
-import { app, BrowserWindow } from 'electron';
-import { client } from 'electron-connect';    // Live-reloader
+import electron from 'electron';
+var app = electron.app;
+var BrowserWindow = electron.BrowserWindow;
+
+
+var client = null;
+if (process.env.NODE_ENV === 'hot') {
+  console.log('Hot Load detected.');
+  client = require('electron-connect').client;    // Live-reloader
+}
 
 const path = require('path')
 const url = require('url')
@@ -15,11 +23,16 @@ function createWindow (page) {
   const win = new BrowserWindow({width: 1024, height: 600})
   const url = 'file://' + __dirname + '/public/' + page;
   win.loadURL(url);
-  // Open the DevTools.
-  win.webContents.openDevTools()
+
+  if (process.env.NODE_ENV === 'hot') {
+     // Open the DevTools.
+     win.webContents.openDevTools()
+  }
 
   // only attach electron-connect when live loading
-  client.create(win);
+  if (client !== null) {
+     client.create(win);
+   }
 
   return win;
 }

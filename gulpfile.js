@@ -6,10 +6,11 @@ const electron = require('electron-connect').server.create();
 const fuseHelper = require('./fuseHelper.js');
 
 let frontCode = fuseHelper("src/",  "main/public/bundle.js");
-let mainCode  = fuseHelper("main/", "dist/main.js");
 
-gulp.task("bundleRend",             ()=> { frontCode.bundle('>renderer.js') })
-gulp.task("bundle", ['bundleRend'], ()=> { mainCode.bundle('>main.js') })
+// let mainCode  = fuseHelper("main/", "dist/main.js");
+// gulp.task("bundle", ['bundleRend'], ()=> { mainCode.bundle('>main.js') })
+
+gulp.task("bundle",                 ()=> { frontCode.bundle('>renderer.js') })
 gulp.task("restart",                ()=> { electron.restart() })
 gulp.task("reload",                 ()=> { electron.reload() })
 gulp.task("prep", ['bundle'],       ()=> {
