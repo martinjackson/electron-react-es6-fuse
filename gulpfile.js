@@ -14,7 +14,7 @@ let frontCode = fuseHelper("src/",  "main/public/bundle.js");
 gulp.task("restart",                ()=> { electron.restart() })
 gulp.task("reload",                 ()=> { electron.reload() })
 gulp.task("bundleRend",             ()=> { frontCode.bundle('>renderer.js') })
-gulp.task("prep", ['bundle','copy','babel-main']});
+gulp.task("prep", ['bundle','copy','babelMain']});
 gulp.task("bundle", ['bundleRend']);
 
 gulp.task("copy", ()=> {
@@ -23,7 +23,7 @@ gulp.task("copy", ()=> {
     gulp.src('main/package.json').pipe(gulp.dest('./dist/'))
 });
 
-gulp.task('babel-main', (cb)=> {
+gulp.task('babelMain', (cb)=> {
   exec('babel main/main.js --out-file dist/main.js',
       (err, stdout, stderr)=> {
           console.log(stdout);
