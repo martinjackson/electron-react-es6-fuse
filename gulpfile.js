@@ -29,15 +29,13 @@ gulp.task("prep", ()=> {
           (err, stdout, stderr)=> {
               console.log(stdout);
               console.log(stderr);
-              cb(err);
             });
 
-  process.chdir('dist');
-  exec('yarn install',
-      (err, stdout, stderr)=> {
+    process.chdir('dist');
+    exec('yarn install',
+        (err, stdout, stderr)=> {
           console.log(stdout);
           console.log(stderr);
-          cb(err);
         });
 })
 
