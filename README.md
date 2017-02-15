@@ -3,7 +3,7 @@
  Made with ♥ by Martin!
  
 - **Clone this project** for a quick start
-- `yarn start` to run the project with Live Reload as you edit the [React](https://facebook.github.io/react/) components or the main.js [Electron](http://electron.atom.io/) app
+- `yarn start` to run the project with Live Reload as you edit the [React](https://facebook.github.io/react/) components or the main.js [Electron](http://electron.atom.io/) app ---- see the changed immediately!!
 - `yarn run prep` and `yarn run packager` will build a Windows EXE, Mac APP, and/or Linux Execuable.
 
 **Development tools needed**
