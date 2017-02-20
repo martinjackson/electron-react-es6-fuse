@@ -12,8 +12,16 @@ let frontCode = fuseHelper("src/",  "main/public/bundle.js");
 // let mainCode  = fuseHelper("main/", "dist/main.js");
 // gulp.task("bundleMain", ()=> { mainCode.bundle('>main.js') })
 
-gulp.task("restart",                ()=> { electron.restart() })
-gulp.task("reload",                 ()=> { electron.reload() })
+gulp.task("restart",   ()=> { electron.restart() })
+gulp.task("reload",    ()=> { electron.reload() })
+gulp.task("bundle",    ()=> { frontCode.bundle('>renderer.js') })
+
+gulp.task('default', function () {
+  electron.start();
+  gulp.watch(['main/*.**'],        ['restart']);
+  gulp.watch(['src/**/*.**'],      ['bundle']);
+  gulp.watch(['main/public/*.**'], ['reload']);
+});
 
 gulp.task("prep", ()=> {
     frontCode.bundle('>renderer.js')
@@ -38,10 +46,3 @@ gulp.task("prep", ()=> {
           console.log(stderr);
         });
 })
-
-gulp.task('default', function () {
-  electron.start();
-  gulp.watch(['main/*.**'],        ['restart']);
-  gulp.watch(['src/**/*.**'],      ['bundleRend']);
-  gulp.watch(['main/public/*.**'], ['reload']);
-});
