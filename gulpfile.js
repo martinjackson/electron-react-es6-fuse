@@ -19,8 +19,8 @@ gulp.task("bundle",    ()=> { frontCode.bundle('>renderer.js') })
 gulp.task('default', function () {
   electron.start();
   gulp.watch(['main/*.**'],        ['restart']);
-  gulp.watch(['src/**/*.**'],      ['bundle']);
   gulp.watch(['main/public/*.**'], ['reload']);
+  gulp.watch(['src/**/*.**'],      ['bundle']);
 });
 
 gulp.task("prep", ()=> {

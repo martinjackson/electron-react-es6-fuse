@@ -56,16 +56,5 @@ Check `main.js` on function `createWindow()` for `electron-connect`'s client
 
 I learned quite a bit from ArekusuNaito's  [electron-fuse-box-babel-live-reload-boilerplate](https://github.com/ArekusuNaito/electron-fuse-box-babel-live-reload-boilerplate)
 
-## Awkward things not yet fixed...
-
-In order for `yarn run dev` aka. `electron -r babel-register main/main.js` to
-work, the following must be included in **package.json**
-```
-"babel": {
-  "presets": ["latest", "react" ]
-},
-```
-Because **package.json**'s main entry point is "main/bootstrapper.js" and it runs `require('babel-register')({ presets: ['latest', 'react'] });` before requiring main/main.js -- the above package.json babel entry is unnecessary, accept when `electron -r babel-register` like commands.
-
 ## Future TODOs
 - use electron-build to create auto-installer
