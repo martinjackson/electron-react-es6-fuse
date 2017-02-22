@@ -33,7 +33,7 @@ gulp.task("prep", ()=> {
       .pipe(rename("package.json"))
       .pipe(gulp.dest('./dist/'))
 
-    exec('babel main/main.js --out-file dist/main.js',
+    exec('babel main/*.js --out-dir dist/',
           (err, stdout, stderr)=> {
               console.log(stdout);
               console.log(stderr);
