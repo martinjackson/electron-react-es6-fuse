@@ -36,7 +36,7 @@ gulp.task("prep", ()=> {
    exec('cd main && babel *.js --out-dir ..\\dist',
         (err, stdout, stderr)=> {
             if (err === null) {
-                process.chdir('..\\dist');
+                process.chdir('dist');
                 exec('yarn install',
                     (err, stdout, stderr)=> {
                         console.log(stdout);
