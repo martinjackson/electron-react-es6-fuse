@@ -33,16 +33,17 @@ gulp.task("prep", ()=> {
       .pipe(rename("package.json"))
       .pipe(gulp.dest('./dist/'))
 
-    exec('cd main && babel *.js --out-dir ..\\dist\\',
-          (err, stdout, stderr)=> {
-              console.log(stdout);
-              console.log(stderr);
-            });
-
-    process.chdir('dist');
-    exec('yarn install',
+   exec('cd main && babel *.js --out-dir ..\\dist',
         (err, stdout, stderr)=> {
-          console.log(stdout);
-          console.log(stderr);
-        });
+            if (err === null) {
+                process.chdir('..\\dist');
+                exec('yarn install',
+                    (err, stdout, stderr)=> {
+                        console.log(stdout);
+                        console.log(stderr);
+                });
+            }
+            console.log(stdout);
+            console.log(stderr);
+    });
 })
