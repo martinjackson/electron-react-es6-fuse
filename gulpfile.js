@@ -1,8 +1,11 @@
 'use strict';
 
+var mkdirp = require('mkdirp');
+var rimraf = require('rimraf');
+var exec = require('child_process').exec;
+
 const gulp = require('gulp');
 var rename = require("gulp-rename");
-var exec = require('child_process').exec;
 
 const electron = require('electron-connect').server.create();
 const fuseHelper = require('./fuseHelper.js');
@@ -24,26 +27,32 @@ gulp.task('default', function () {
 });
 
 gulp.task("prep", ()=> {
-    frontCode.bundle('>renderer.js')
+    rimraf('./dist', function () {
+      mkdirp('./dist/main/public', (err)=> {
+        if (err) console.error(err)
+      });
 
-    gulp.src('main/public/**/*.*', {base: 'main/public/'})
-      .pipe(gulp.dest('./dist/public'))
+      frontCode.bundle('>renderer.js')
 
-    gulp.src('main/runtime.json')
-      .pipe(rename("package.json"))
-      .pipe(gulp.dest('./dist/'))
+      gulp.src('main/public/**/*.*', {base: 'main/public/'})
+        .pipe(gulp.dest('./dist/main/public'))
 
-   exec('cd main && babel *.js --out-dir ..\\dist',
-        (err, stdout, stderr)=> {
-            if (err === null) {
-                process.chdir('dist');
-                exec('yarn install',
-                    (err, stdout, stderr)=> {
-                        console.log(stdout);
-                        console.log(stderr);
-                });
-            }
-            console.log(stdout);
-            console.log(stderr);
+      gulp.src('main/runtime.json')
+        .pipe(rename("package.json"))
+        .pipe(gulp.dest('./dist/'))
+
+     exec('babel main/*.js --out-dir dist',
+          (err, stdout, stderr)=> {
+              if (err === null) {
+                  process.chdir('dist');
+                  exec('yarn install',
+                      (err, stdout, stderr)=> {
+                          console.log(stdout);
+                          console.log(stderr);
+                  });
+              }
+              console.log(stdout);
+              console.log(stderr);
+      });
     });
 })

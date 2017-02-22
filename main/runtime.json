@@ -3,7 +3,7 @@
   "productName": "electron-react-es6-fuse",
   "version": "1.0.0",
   "description": "Electron + React App bundled by FuseBox and Babel",
-  "main": "./main.js",
+  "main": "./main/main.js",
   "author": {
     "name": "Martin A. Jackson",
     "email": "martin.a.jackson@gmail.com",
