@@ -18,7 +18,7 @@ const pages = ['index.html', 'example.html'];
 
 function createWindow (page) {
   // Create the browser window.
-  const win = new BrowserWindow({width: 1024, height: 600})
+  const win = new BrowserWindow({width: 700, height: 860})
   const url = 'file://' + __dirname + '/public/' + page;
   win.loadURL(url);
 
