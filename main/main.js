@@ -14,17 +14,19 @@ if (process.env.NODE_ENV === 'hot') {
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win = [null, null];
-const pages = ['index.html', 'example.html'];
+const pages  = ['index.html', 'example.html'];
+const coords = [{width: 700, height: 900},
+                {width:520, height:500, center:true, useContentSize: true}];
 
-function createWindow (page) {
+function createWindow (page, specs) {
   // Create the browser window.
-  const win = new BrowserWindow({width: 700, height: 860})
+  const win = new BrowserWindow(specs)
   const url = 'file://' + __dirname + '/public/' + page;
   win.loadURL(url);
 
   if (process.env.NODE_ENV === 'hot') {
      // Open the DevTools.
-     win.webContents.openDevTools()
+     // win.webContents.openDevTools()
   }
 
   // only attach electron-connect when live loading
@@ -38,7 +40,7 @@ function createWindow (page) {
 function createWindows () {
   for (let i=0; i<pages.length; i++) {
     if (win[i] == null) {
-       win[i] = createWindow(pages[i]);
+       win[i] = createWindow(pages[i], coords[i]);
        // Emitted when the window is closed.
        win[i].on('closed', function () { win[i] = null; })
      }

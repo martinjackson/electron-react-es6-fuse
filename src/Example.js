@@ -15,7 +15,8 @@ export default class Example extends React.Component {
     return (
         <div>
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React -- second window (prop 'something': {something})</h2>
+          <h2>Welcome to React</h2>
+          <h3>second window (prop 'something': {something})</h3>
 
           <Framed bgColor='blue'   opacity={0.70}  top={top}    left={left}     z={20} />
           <Framed bgColor='yellow' opacity={0.70}  top={top-40} left={left+60}  z={30} />

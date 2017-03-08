@@ -16,6 +16,7 @@ export default class App extends React.Component {
             <li>ES6 in main thanks to fuse-box,babel !</li>
             <li>LiveReload thanks to gulp,electron-connect,fuse-box,babel !</li>
             <li>Lightning fast bundles thanks to fuse-box</li>
+            <li>Ctrl+Shift+I to toggle the developer tools.</li>
           </ul>
 
           <SimpleLineChart />

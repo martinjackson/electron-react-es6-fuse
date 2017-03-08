@@ -2,7 +2,7 @@
 
 import React from 'react';
 import logo from './logo.svg';
-
+import Spinner from './Spinner';
 
 export default class Framed extends React.Component {
 
@@ -25,7 +25,8 @@ export default class Framed extends React.Component {
         // console.log(st);
 
         return <div style={st}>
-               <img src={logo} className="App-logo" alt="logo" />
+               <Spinner color="#61DAFB"/>
+               <img src={logo} className="Spinner" alt="logo" />
                <p>Made with ♥ by Martin!</p>
         </div>
     }
