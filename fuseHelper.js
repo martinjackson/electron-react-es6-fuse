@@ -1,27 +1,22 @@
 
 const fsbx = require("fuse-box");
 
-function fnPath(fullname) {
-  return fullname.substring(0,fullname.lastIndexOf('/')+1);
-}
-
-function fnName(fullname) {
-  return fullname.substring(fullname.lastIndexOf('/')+1);
-}
-
 var fuseHelper = function(homeDir, outFile) {
 
+  const path = outFile.substring(0,outFile.lastIndexOf('/')+1);
+  const bundle = outFile.substring(outFile.lastIndexOf('/')+1)+'.map';
+
   const config = {
-    plugins: [
-        fsbx.JSONPlugin(), fsbx.CSSPlugin(), fsbx.SVGPlugin(),
-        fsbx.BabelPlugin({ config: { sourceMaps: true, presets: ["latest", "react"] } })
-    ]
-  }
+      serverBundle: true,
+      shim: {
+        electron: { exports: "global.require('electron')" },
+      },
 
-  const path = fnPath(outFile);
-  const bundle = fnName(outFile)+'.map';
+      plugins: [
+          fsbx.JSONPlugin(), fsbx.CSSPlugin(), fsbx.SVGPlugin(),
+          fsbx.BabelPlugin({ config: { sourceMaps: true, presets: ["latest", "react"] } })
+      ],
 
-  return new fsbx.FuseBox(Object.assign({}, config, {
       homeDir: homeDir,
       sourceMap:
       {
@@ -29,7 +24,10 @@ var fuseHelper = function(homeDir, outFile) {
         outFile: path+bundle,
       },
       outFile: outFile
-  }));
+  }
+
+
+  return new fsbx.FuseBox(config);
 };
 
 module.exports = fuseHelper;

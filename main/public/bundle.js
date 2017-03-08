@@ -346,6 +346,13 @@ var Example = function (_React$Component) {
 exports.default = Example;
 });
 });
+FuseBox.pkg("electron", {}, function(___scope___){
+___scope___.file("index.js", function(exports, require, module, __filename, __dirname){ 
+
+module.exports = global.require('electron')
+});
+return ___scope___.entry = "index.js";
+});
 FuseBox.pkg("react", {}, function(___scope___){
 ___scope___.file("react.js", function(exports, require, module, __filename, __dirname){ 
 
@@ -21331,6 +21338,7 @@ if (FuseBox.isServer) {
 });
 return ___scope___.entry = "index.js";
 });
+FuseBox.isServer = true;
 
 FuseBox.import("default/renderer.js");
 FuseBox.main("default/renderer.js");
