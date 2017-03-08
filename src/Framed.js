@@ -22,7 +22,7 @@ export default class Framed extends React.Component {
           border: '3px solid #73AD21'
         }
 
-        console.log(st);
+        // console.log(st);
 
         return <div style={st}>
                <img src={logo} className="App-logo" alt="logo" />
