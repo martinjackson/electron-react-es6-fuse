@@ -3,6 +3,11 @@
 node_modules
 dist
 bin
+*.map
+main/public/bundle.js.map
+main/public/bundle.js
+main/public/bundle.css
+main/public/bundle.css.map
 
 # Packages #
 ################################################################################
@@ -21,7 +26,5 @@ bin
 .Spotlight-V100
 .Trashes
 Thumbs.db
-main/public/bundle.js.map
-main/public/bundle.js
-main/public/bundle.css
-main/public/bundle.css.map
+
+
