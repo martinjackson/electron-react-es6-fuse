@@ -1,3 +1,4 @@
+
 // This file is required by the index.html file and will
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process
@@ -15,6 +16,9 @@ if(!fs.readFileSync)
 {
   console.error('fs.readFileSync sync is not avaliable');
 }
+
+const {ipcRenderer} = require('electron');
+import debugMenu from './debug-menu';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -45,3 +49,16 @@ function renderAppInElement(el) {
 
 var divs = document.querySelectorAll('div');
 [].forEach.call(divs, renderAppInElement);
+
+
+// console.log(new Date(), 'renderer launched.');
+
+ipcRenderer.on('attach-debug', (event, arg) => {
+  // console.log(new Date(), 'debug context added');
+  debugMenu.install();  // activate context menu
+})
+
+ipcRenderer.on('detach-debug', (event, arg) => {
+  // console.log(new Date(), 'debug context uninstalled');
+  debugMenu.uninstall();  // deactivate context menu
+})

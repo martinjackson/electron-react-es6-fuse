@@ -13,7 +13,9 @@ var fuseHelper = function(homeDir, outFile) {
       },
 
       plugins: [
-          fsbx.JSONPlugin(), fsbx.CSSPlugin(), fsbx.SVGPlugin(),
+          fsbx.JSONPlugin(),
+          fsbx.SVGPlugin(),
+          fsbx.CSSPlugin({ group: "bundle.css", outFile: `${path}/bundle.css` }),
           fsbx.BabelPlugin({ config: { sourceMaps: true, presets: ["latest", "react"] } })
       ],
 

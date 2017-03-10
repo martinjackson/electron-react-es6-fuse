@@ -6,6 +6,8 @@ var exec = require('child_process').exec;
 
 const gulp = require('gulp');
 var rename = require("gulp-rename");
+var gutil = require("gulp-util");
+var webpack = require("webpack");
 
 const electron = require('electron-connect').server.create();
 const fuseHelper = require('./fuseHelper.js');
@@ -19,7 +21,21 @@ gulp.task("restart",   ()=> { electron.restart() })
 gulp.task("reload",    ()=> { electron.reload() })
 gulp.task("bundle",    ()=> { frontCode.bundle('>renderer.js') })
 
-gulp.task('default', function () {
+// rename the following task to bundle to stop using fuse-box and use webpack instead
+gulp.task("webpack", function(callback) {
+    // run webpack
+    webpack(require('./config/webpack.config.js'),
+      function(err, stats) {
+        if(err) throw new gutil.PluginError("webpack", err);
+        gutil.log("[webpack]", stats.toString({
+            // output options
+        }));
+        callback();
+    });
+});
+
+
+gulp.task('default', ['bundle'], function () {
   electron.start();
   gulp.watch(['main/*.**'],        ['restart']);
   gulp.watch(['main/public/*.**'], ['reload']);

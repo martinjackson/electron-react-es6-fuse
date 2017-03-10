@@ -9,8 +9,11 @@ import Glucose from './Glucose';
 export default class App extends React.Component {
     render() {
 
+      const h1st = { float: 'right', marginRight: 120 }
+
+
         return <div>
-          <h1>Electron App (with React)</h1>
+          <h1 style={h1st}>Electron App (with React)</h1>
           <img src={logo} className="App-logo" alt="logo" />
           <ul>
             <li>ES6 in main thanks to fuse-box,babel !</li>

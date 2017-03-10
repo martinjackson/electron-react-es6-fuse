@@ -23,3 +23,5 @@ bin
 Thumbs.db
 main/public/bundle.js.map
 main/public/bundle.js
+main/public/bundle.css
+main/public/bundle.css.map

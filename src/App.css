@@ -11,7 +11,6 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
 .Spinner {
   animation: App-logo-counter-spin infinite 1.5s linear;
-  height: 60px;
 }
 
 .App-header {

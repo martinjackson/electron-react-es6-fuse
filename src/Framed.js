@@ -22,11 +22,10 @@ export default class Framed extends React.Component {
           border: '3px solid #73AD21'
         }
 
-        // console.log(st);
+        // <img src={logo} className="Spinner" alt="logo" />
 
         return <div style={st}>
-               <Spinner color="#61DAFB"/>
-               <img src={logo} className="Spinner" alt="logo" />
+               <Spinner color="#006100" height={60} />
                <p>Made with ♥ by Martin!</p>
         </div>
     }

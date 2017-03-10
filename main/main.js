@@ -1,5 +1,6 @@
 
 import electron from 'electron';
+
 var app = electron.app;
 var BrowserWindow = electron.BrowserWindow;
 
@@ -24,11 +25,6 @@ function createWindow (page, specs) {
   const url = 'file://' + __dirname + '/public/' + page;
   win.loadURL(url);
 
-  if (process.env.NODE_ENV === 'hot') {
-     // Open the DevTools.
-     // win.webContents.openDevTools()
-  }
-
   // only attach electron-connect when live loading
   if (client !== null) {
      client.create(win);
@@ -37,10 +33,19 @@ function createWindow (page, specs) {
   return win;
 }
 
+const {ipcMain} = require('electron')
+
 function createWindows () {
   for (let i=0; i<pages.length; i++) {
     if (win[i] == null) {
        win[i] = createWindow(pages[i], coords[i]);
+
+         if (process.env.NODE_ENV === 'hot') {
+           win[i].webContents.on('did-finish-load', () => {
+            win[i].webContents.send('attach-debug', '');
+          });
+        }
+
        // Emitted when the window is closed.
        win[i].on('closed', function () { win[i] = null; })
      }
