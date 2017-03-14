@@ -29,17 +29,3 @@ var fuseHelper = function(homeDir, outFile) {
 };
 
 module.exports = fuseHelper;
-
-/*
-deprecated as of Fuse-box 1.3.123
-
-sourceMap:
-{
-  bundleReference: bundle,
-  outFile: path+bundle,
-},
-
-replaced with
-sourcemaps: true,
-
-*/
