@@ -20,11 +20,7 @@ var fuseHelper = function(homeDir, outFile) {
       ],
 
       homeDir: homeDir,
-      sourceMap:
-      {
-        bundleReference: bundle,
-        outFile: path+bundle,
-      },
+      sourcemaps: true,
       outFile: outFile
   }
 
@@ -33,3 +29,17 @@ var fuseHelper = function(homeDir, outFile) {
 };
 
 module.exports = fuseHelper;
+
+/*
+deprecated as of Fuse-box 1.3.123
+
+sourceMap:
+{
+  bundleReference: bundle,
+  outFile: path+bundle,
+},
+
+replaced with
+sourcemaps: true,
+
+*/

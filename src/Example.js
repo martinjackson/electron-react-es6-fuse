@@ -18,7 +18,7 @@ export default class Example extends React.Component {
 
     return (
         <div>
-          <h2 style={h2st}>Welcome to React<br/>2nd window (prop 'something': {something})</h2>          
+          <h2 style={h2st}>Welcome to React<br/>2nd window (prop 'something': {something})</h2>
           <img src={logo} className="App-logo" alt="logo" height={60} />
 
           <USMap height={250} />
