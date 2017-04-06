@@ -7,7 +7,8 @@
     "presets": [
       "react",
       "latest"
-    ]
+    ],
+     "plugins": ["transform-object-rest-spread"]
   },
   "dependencies": {
     "babel-loader": "^6.4.0",
