@@ -26,6 +26,14 @@ The babel preset is `latest` and `react`.
 apm install editorconfig es6-javascript atom-ternjs javascript-snippets linter linter-eslint language-babel autocomplete-modules file-icons
 ```
 
+**Adding eslint to Atom**
+```
+apm install linter-eslint
+```
+**Adding eslint to your project for command line**
+```
+npm i --save-dev eslint eslint-plugin-react
+```
 Hope this starter helps!
 
 
