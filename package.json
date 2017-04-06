@@ -5,6 +5,7 @@
   "main": "main/bootstrapper.js",
   "_comment": "I dont know if this is needed. fuseHelper.js specifies the babel presets seperately.",
   "babel": {
+    "sourceMaps": true,
     "presets": [
       "react",
       "latest",
