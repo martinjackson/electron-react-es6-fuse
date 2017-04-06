@@ -6,8 +6,12 @@ import logo from './logo.svg';
 import SimpleLineChart from './SimpleLineChart';
 import Glucose from './Glucose';
 
+import spreadTest from './spreadTest';
+
 export default class App extends React.Component {
     render() {
+
+      spreadTest();
 
       const h1st = { float: 'right', marginRight: 120 }
 

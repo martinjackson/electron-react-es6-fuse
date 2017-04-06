@@ -41,7 +41,7 @@ const data = [
       {date: '2017-01-31', glucose: 134},
 ];
 
-export default class SimpleLineChart extends React.Component {
+export default class Glucose extends React.Component {
 
 	render () {
   	return (

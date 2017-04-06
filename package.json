@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "**Clone and run for a cool boilerplate!",
   "main": "main/bootstrapper.js",
+  "_comment": "I dont know if this is needed. fuseHelper.js specifies the babel presets seperately.",
   "babel": {
     "presets": [
       "react",
-      "latest"
-    ],
-     "plugins": ["transform-object-rest-spread"]
+      "latest",
+      "stage-2"
+    ]
   },
   "dependencies": {
     "babel-loader": "^6.4.0",
@@ -27,6 +28,7 @@
     "babel-preset-env": "^1.2.1",
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react": "^6.22.0",
+    "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.22.0",
     "cross-env": "^3.1.4",
     "electron-packager": "^8.5.1",
