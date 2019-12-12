@@ -28,11 +28,11 @@
       "react"
     ],
     "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
     }
   },
   "dependencies": {
@@ -44,7 +44,8 @@
     "gulp-util": "^3.0.8",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "recharts": "^0.21.2"
+    "recharts": "^0.21.2",
+    "snyk": "^1.258.2"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
@@ -75,7 +76,9 @@
     "prep": "gulp prep",
     "dev": "electron -r babel-register main/main.js",
     "prod": "electron ./dist/",
-    "packager": "electron-packager dist electron-fuse-babel --icon=img/icon --overwrite --prune=true --ignore=src --ignore=notes --out=./bin/ --asar=true"
+    "packager": "electron-packager dist electron-fuse-babel --icon=img/icon --overwrite --prune=true --ignore=src --ignore=notes --out=./bin/ --asar=true",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "keywords": [],
   "author": {
@@ -91,5 +94,6 @@
   "bugs": {
     "url": "https://github.com/martinjackson/electron-react-es6-fuse/issues"
   },
-  "homepage": "https://github.com/martinjackson/electron-react-es6-fuse#readme"
+  "homepage": "https://github.com/martinjackson/electron-react-es6-fuse#readme",
+  "snyk": true
 }
