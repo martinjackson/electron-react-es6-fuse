@@ -48,7 +48,8 @@
     "gulp-util": "^3.0.8",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "recharts": "^1.8.5"
+    "recharts": "^1.8.5",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -79,7 +80,9 @@
     "prep": "gulp prep",
     "dev": "electron -r babel-register main/main.js",
     "prod": "electron ./dist/",
-    "packager": "electron-packager dist electron-fuse-babel --icon=img/icon --overwrite --prune=true --ignore=src --ignore=notes --out=./bin/ --asar=true"
+    "packager": "electron-packager dist electron-fuse-babel --icon=img/icon --overwrite --prune=true --ignore=src --ignore=notes --out=./bin/ --asar=true",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "keywords": [],
   "author": {
@@ -95,5 +98,6 @@
   "bugs": {
     "url": "https://github.com/martinjackson/electron-react-es6-fuse/issues"
   },
-  "homepage": "https://github.com/martinjackson/electron-react-es6-fuse#readme"
+  "homepage": "https://github.com/martinjackson/electron-react-es6-fuse#readme",
+  "snyk": true
 }
